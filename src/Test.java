@@ -1,3 +1,6 @@
+
+import tools.utilities.Logs;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -21,5 +24,9 @@ public class Test {
 
     public void speack() {
         System.out.println("Test.speack()" + aasdf);
+    }
+    
+    public void say() {
+        Logs.e(aa);
     }
 }
