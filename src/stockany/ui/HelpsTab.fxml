@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root text="Helps" type="Tab" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" >
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <children>
+                <VBox layoutX="230.0" layoutY="239.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label text="Label" />
+                        <TextArea editable="false" prefHeight="448.0" prefWidth="1543.0" text="1. 数据准备：&#10;   1.1 下载中信证券至信全能版，地址：http://download.cs.ecitic.com/index.html&#10;   1.2 登录软件，没有账号可以选择独立行情，点击“试用”。&#10;   1.3 进入软件，在“系统”-&gt;“盘后数据下载”下，选择沪深日线下载。&#10;   1.4 下载完毕，在“系统”-&gt;&quot;数据导出“下，选择“高级导出”，做好以下事情：a，导出日线即可；b，记住导出目录；c，文件名使用：YYXXXXXX.txt格式；d，数据选前复权；e，选择品种，最好沪深A股都全选。&#10;   1.5 至此，数据准备完毕。&#10;&#10;2. 软件设置：&#10;   2.1 在“Load Data”页面，设置路径，主要设置“StockData Asc Files”，用来指定输入数据文件夹；设置“StockCorr Asc File”，用来存放计算结果；其他暂时不用设置。设置完成以后，点击“Save new path as Default”。&#10;   2.2 暂时没有。&#10;&#10;3. 计算：&#10;   3.1 进入&quot;Patterns&quot;页面，选择计算时间段，从固定时间往后算，点“From Start”，选择日期；从固定时间往前算，取消“From Start”。&#10;   3.2 给计算步长（正整数，按天算），可以同时几个步长，手动输入，用逗号隔开，回车确认；或者在Add按钮旁边输入，点击Add添加。可以尝试：Classic按钮。&#10;   3.3 线程数暂时只支持单线程。&#10;   3.4 选择搜索模式（Pattern），按价格、波动、成交量等，可多选。&#10;   3.5 选择搜索的股票集合，默认是全部互相匹配计算，可以手动选择，点击“Selected Stocks”，在右侧列表中勾选希望计算的股票。&#10;   3.6 点击“Run Search”，进行搜索运算，观察Log窗口，有实时提示。&#10;&#10;4. 结果复盘：&#10;   4.1 进入&quot;Search Results&quot;页面，左侧选择需要查看的股票，可以用“Filter”过滤，点击该股票，如果有计算数据，则在右侧出现相应的计算结果。&#10;   4.2 右侧表格中为计算的结果，支持结果排序，选择一个相关系数，在Plot窗口，就会出现二者的股票图形，同时，选中单元格，会变成红色背景。&#10;   4.3 在Plot窗口，可以通过勾选上方的All Source或者All Matched，来查看匹配段之后的走势，以便验证。目前Plot窗口，还不支持自己调整显示时间段。" />
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </content>
+</fx:root>

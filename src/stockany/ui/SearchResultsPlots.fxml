@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.embed.swing.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import stockany.ui.*?>
+
+<AnchorPane cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stockany.ui.SearchResultsPlotsController">
+    <children>
+        <TabPane fx:id="SearchResultsTabPane" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <contextMenu>
+                <ContextMenu>
+                    <items>
+                        <MenuItem fx:id="menuItemAddTab" mnemonicParsing="false" onAction="#onMenuItemAddTab" text="Add Tab" />
+                        <MenuItem fx:id="menuItemRemoveAllTab" mnemonicParsing="false" onAction="#onMenuItemRemoveAllTab" text="Remove All Tabs" />
+                        <MenuItem fx:id="menuItemOtherTab" mnemonicParsing="false" onAction="#onMenuItemRemoveOtherTab" text="Remove Other Tabs" />
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+        </TabPane>
+    </children>
+</AnchorPane>

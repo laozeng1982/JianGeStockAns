@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root text="Settings" type="Tab" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" >
+    <content>
+        <AnchorPane fx:id="settingAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <children>
+                <GridPane layoutX="14.0" layoutY="46.0" prefHeight="192.0" prefWidth="852.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="264.0" minWidth="10.0" prefWidth="264.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="374.0" minWidth="10.0" prefWidth="374.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="131.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="10.0" prefWidth="83.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Default StockData Bin Files Location:">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="16.0" text="Default StockData DB Files Location:" GridPane.rowIndex="2">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="76.0" text="Default StockData Asc Files Location:" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="btnBrowsDataAscFilesDef" layoutX="566.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBtnBrowsDataAscFilesDef" text="Brows" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <Button fx:id="btnBrowsDataDbFileDef" layoutX="566.0" layoutY="44.0" mnemonicParsing="false" onAction="#onBtnBrowsDataDbFileDef" text="Brows" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtF_DataBinFilesDefPath" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtF_DataAscFilesDefPath" layoutX="243.0" layoutY="14.0" prefHeight="14.0" prefWidth="310.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtF_DataDbFileDefPath" layoutX="243.0" layoutY="44.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="btn_SaveSettings" disable="true" mnemonicParsing="false" onAction="#onBtnSaveSetting" text="Save" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                        <Button fx:id="btnBrowsDataBinFilesDef" layoutX="553.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBtnBrowsDataBinFilesDef" text="Brows" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                        <Label text="Default Logs Files Location:" GridPane.rowIndex="5">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtF_LogFileDefPath" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Button fx:id="btnBrowsLogFileDef" mnemonicParsing="false" onAction="#onBtnBrowsLogFileDef" text="Brows" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                        <Label layoutX="10.0" layoutY="83.0" text="Default StockCorr DB Files Location:" GridPane.rowIndex="3">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtF_CorrDbFileDefPath" layoutX="274.0" layoutY="81.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button fx:id="btnBrowsCorrDbFileDef" layoutX="688.0" layoutY="81.0" mnemonicParsing="false" onAction="#onBtnBrowsCorrDbFileDef" text="Brows" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                        <Label layoutX="10.0" layoutY="113.0" text="Default StockCorr Asc Files Location:" GridPane.rowIndex="4">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtF_CorrAscFilesDefPath" layoutX="274.0" layoutY="47.0" prefHeight="14.0" prefWidth="310.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Button fx:id="btnBrowsCorrAscFilesDef" layoutX="688.0" layoutY="47.0" mnemonicParsing="false" onAction="#onBtnBrowsCorrAscFilesDef" text="Brows" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                    </children>
+                </GridPane>
+                <Label layoutX="7.0" layoutY="3.0" prefHeight="23.0" prefWidth="205.0" text="Default Files Location:">
+                    <font>
+                        <Font name="Arial Italic" size="18.0" />
+                    </font>
+                </Label>
+                <Separator layoutY="249.0" prefHeight="0.0" prefWidth="1400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                <Label layoutX="7.0" layoutY="250.0" prefHeight="23.0" prefWidth="205.0" text="Settings:">
+                    <font>
+                        <Font name="Arial Italic" size="18.0" />
+                    </font>
+                </Label>
+                <CheckBox layoutX="37.0" layoutY="288.0" mnemonicParsing="false" text="Logs Window Maxinumable" />
+                <CheckBox layoutX="37.0" layoutY="310.0" mnemonicParsing="false" text="Main Window Maxinum at start" />
+                <GridPane layoutX="34.0" layoutY="336.0" prefHeight="121.0" prefWidth="676.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <TextField fx:id="txtF_DefSample" onInputMethodTextChanged="#onContentChanged" GridPane.columnIndex="1" />
+                        <Label prefHeight="19.0" prefWidth="164.0" text="Default sample" />
+                    </children>
+                </GridPane>
+            </children>
+        </AnchorPane>
+    </content>
+</fx:root>

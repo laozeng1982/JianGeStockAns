@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import stockany.ui.*?>
+<?import stockany.ui.controls.*?>
+
+<fx:root text="Search Results" type="Tab" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" >
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <children>
+                <TableView fx:id="searchResultsTableView" layoutX="332.0" layoutY="41.0" onMouseClicked="#onSearchTableClicked" prefHeight="774.0" prefWidth="1068.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="330.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
+                    <columns>
+                    </columns>
+                    <contextMenu>
+                        <ContextMenu>
+                            <items>
+                                <MenuItem fx:id="muItm_AddToReview" mnemonicParsing="false" onAction="#onMuItmAddToReview" text="Add To Review" />
+                            </items>
+                        </ContextMenu>
+                    </contextMenu>
+                </TableView>
+                <GridPane layoutX="7.0" layoutY="8.0" prefHeight="33.0" prefWidth="1201.0" AnchorPane.topAnchor="8.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="10.0" prefWidth="87.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="217.0" minWidth="10.0" prefWidth="120.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.0" minWidth="10.0" prefWidth="90.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="124.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.0" minWidth="10.0" prefWidth="132.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.0" minWidth="10.0" prefWidth="118.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.0" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="233.0" minWidth="10.0" prefWidth="118.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="233.0" minWidth="10.0" prefWidth="118.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="233.0" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <ComboBox fx:id="cmBx_SearchStockCode" editable="true" onAction="#onCmBxSearchStockCode" onScrollFinished="#onCmBxCodeScrolled" prefHeight="29.0" prefWidth="138.0" GridPane.columnIndex="1" />
+                        <ComboBox fx:id="cmBx_SearchStockName" editable="true" onAction="#onCmBxSearchStockName" onScrollFinished="#onCmBxNameScrolled" prefHeight="29.0" prefWidth="138.0" GridPane.columnIndex="3" />
+                        <Label text="Stock Code:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="18.0" prefWidth="87.0" text="Stock Name:" GridPane.columnIndex="2">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <CheckBox fx:id="chkBx_FilterSameDate" mnemonicParsing="false" onAction="#onChkBxFilterSameDate" prefHeight="16.0" prefWidth="173.0" text="Filter Same Date" GridPane.columnIndex="4" />
+                        <RadioButton fx:id="rdBtn_AscFileData" mnemonicParsing="false" onAction="#onAscFileDataMode" selected="true" text="Asc File Data" GridPane.columnIndex="7">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </RadioButton>
+                        <RadioButton fx:id="rdBtn_BinFileData" mnemonicParsing="false" onAction="#onBinFileDataMode" text="Bin File Data" GridPane.columnIndex="8">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </RadioButton>
+                        <RadioButton fx:id="rdBtn_DataBase" mnemonicParsing="false" onAction="#onDataBaseMode" text="DataBase" GridPane.columnIndex="9">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </RadioButton>
+                    </children>
+                </GridPane>
+                <ImageView fx:id="imageIcon" fitHeight="32.0" fitWidth="32.0" layoutX="300.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true" />
+                <AnchorPane layoutX="7.0" layoutY="41.0" prefHeight="838.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="41.0" >
+                    <children>
+                        <StocksTableViewController fx:id="stockListTableView" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                    </children>  
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </content>
+</fx:root>

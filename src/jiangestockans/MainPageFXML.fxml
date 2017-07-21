@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.embed.swing.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import stockany.ui.*?>
+<?import stockany.ui.controls.*?>
+
+<AnchorPane id="AnchorPane" fx:id="mainAnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="937.0" prefWidth="1543.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <MenuBar layoutY="2.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="641.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="800.0" AnchorPane.topAnchor="0.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem fx:id="exitMenuItem" mnemonicParsing="false" onAction="#onExitMenuItem" text="Exit" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Help" />
+                        <MenuItem mnemonicParsing="false" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <TabPane fx:id="mainTabPane" layoutY="135.0" prefHeight="615.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+            <tabs>
+                <Tab text="Load Data">
+                    <content>
+                        <AnchorPane fx:id="loadAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane layoutX="11.0" layoutY="26.0" prefHeight="190.0" prefWidth="744.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="330.0" minWidth="0.0" prefWidth="175.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="564.0" minWidth="0.0" prefWidth="376.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="780.0" minWidth="10.0" prefWidth="63.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="564.0" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label prefHeight="24.0" prefWidth="184.0" text="StockData 5Min Asc Files:" GridPane.rowIndex="1">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label prefHeight="24.0" prefWidth="185.0" text="StockData Daliy Asc Files:" GridPane.rowIndex="2">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label text="StockData Daliy DB File:" GridPane.rowIndex="3">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="txtF_5MinDataAscFilesPath" onAction="#onTextFiledsChanged" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <TextField fx:id="txtF_DataAscFilesPath" layoutX="116.0" layoutY="21.0" onAction="#onTextFiledsChanged" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <TextField fx:id="txtF_DataDbFilePath" layoutX="116.0" layoutY="68.0" onAction="#onTextFiledsChanged" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                        <Button fx:id="btnBrows5MinDataAscFiles" mnemonicParsing="false" onAction="#onBtnBrows5MinDataAscFiles" text="Brows" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin>
+                                        </Button>
+                                        <Button fx:id="btnBrowsDataAscFiles" layoutX="476.0" layoutY="21.0" mnemonicParsing="false" onAction="#onBtnBrowsDataAscFiles" text="Brows" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                        <Button fx:id="btnBrowsDataDbFile" layoutX="476.0" layoutY="21.0" mnemonicParsing="false" onAction="#onBtnBrowsDataDbFile" text="Brows" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                                        <Button fx:id="btn_ReadBin" mnemonicParsing="false" onAction="#onBtnReadBinFiles" prefHeight="29.0" prefWidth="125.0" text="Bin To DB" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                            <font>
+                                                <Font name="System Bold Italic" size="15.0" />
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="btn_ReadAsc" layoutX="563.0" layoutY="21.0" mnemonicParsing="false" onAction="#onBtnReadAscFiles" prefHeight="29.0" prefWidth="125.0" text="Asc To DB" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                            <font>
+                                                <Font name="System Bold Italic" size="15.0" />
+                                            </font>
+                                        </Button>
+                                        <Label layoutX="10.0" layoutY="88.0" text="StockCorr DB File:" GridPane.rowIndex="4">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="txtF_CorrDbFilePath" onAction="#onTextFiledsChanged" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                        <Button fx:id="btnBrowsCorrDbFile" layoutX="573.0" layoutY="85.0" mnemonicParsing="false" onAction="#onBtnBrowsCorrDbFile" text="Brows" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                                        <Label layoutX="10.0" layoutY="115.0" text="StockCorr Asc File:" GridPane.rowIndex="5">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="txtF_CorrAscFilesPath" layoutX="159.0" layoutY="43.0" onAction="#onTextFiledsChanged" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                        <Button fx:id="btnBrowsCorrAscFiles" layoutX="573.0" layoutY="43.0" mnemonicParsing="false" onAction="#onBtnBrowsCorrAscFiles" text="Brows" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+                                        <Button fx:id="btn_UpdateList" layoutX="645.0" layoutY="40.0" mnemonicParsing="false" onAction="#onBtnUpdateList" prefHeight="29.0" prefWidth="126.0" text="OnlyUpdaeList" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                            <font>
+                                                <Font name="System Bold Italic" size="15.0" />
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="btnBrowsDataBinFiles" layoutX="573.0" layoutY="39.0" mnemonicParsing="false" onAction="#onBtnBrowsDataBinFiles" text="Brows" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
+                                        <Label layoutX="10.0" layoutY="39.0" prefHeight="24.0" prefWidth="149.0" text="StockData Bin Files:">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="txtF_DataBinFilesPath" layoutX="159.0" layoutY="39.0" onAction="#onTextFiledsChanged" GridPane.columnIndex="1" />
+                              <Label text="StockReview DB File:" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtF_ReviewDbFilePath" layoutX="193.0" layoutY="144.0" onAction="#onTextFiledsChanged" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <Button fx:id="btnBrowsReviewDbFile" layoutX="596.0" layoutY="114.0" mnemonicParsing="false" onAction="#onBtnBrowsReviewDbFile" text="Brows" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+                                    </children>
+                                </GridPane>
+                                <CheckBox fx:id="chkBx_UpdateList" layoutX="799.0" layoutY="132.0" mnemonicParsing="false" text="Update Stock List ?">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </CheckBox>
+                                <Separator layoutY="231.0" prefHeight="0.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="231.0" />
+                                <Label layoutX="4.0" layoutY="-3.0" prefHeight="35.0" prefWidth="135.0" text="Select Data:">
+                                    <font>
+                                        <Font name="Arial Italic" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="4.0" layoutY="232.0" prefHeight="35.0" prefWidth="135.0" text="File Review:">
+                                    <font>
+                                        <Font name="Arial Italic" size="18.0" />
+                                    </font>
+                                </Label>
+                                <ComboBox fx:id="cmBx_AscCode" layoutX="906.0" layoutY="26.0" prefHeight="29.0" prefWidth="115.0" />
+                                <Label layoutX="799.0" layoutY="32.0" text="Ascii Unicode">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <CheckBox fx:id="chkBx_SaveAsDef" layoutX="799.0" layoutY="105.0" mnemonicParsing="false" onAction="#onSaveNewPath" text="Save new path as Default?">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </CheckBox>
+                                <HBox fx:id="fileReviewVBox" layoutX="4.0" layoutY="267.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="267.0" />
+                                <Button layoutX="1398.0" layoutY="236.0" mnemonicParsing="false" onAction="#onBtnRefreshAllFolder" prefHeight="32.0" prefWidth="119.0" text="Refresh All" AnchorPane.rightAnchor="0.0">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Patterns">
+                    <content>
+                        <AnchorPane fx:id="patternAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="881.0" prefWidth="1401.0">
+                            <children>
+                                <GridPane fx:id="gridPanePatternController" layoutX="14.0" layoutY="14.0" prefHeight="180.0" prefWidth="1112.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="2.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="136.0" minWidth="10.0" prefWidth="133.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="123.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="106.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="102.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="112.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="105.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="90.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="77.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="148.0" minWidth="10.0" prefWidth="144.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="148.0" minWidth="10.0" prefWidth="141.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label layoutX="10.0" layoutY="16.0" text="Start From:" GridPane.columnIndex="1">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <DatePicker fx:id="datePicker_Start" disable="true" prefHeight="30.0" prefWidth="142.0" GridPane.columnIndex="2" />
+                                        <DatePicker fx:id="datePicker_End" layoutX="133.0" layoutY="44.0" prefHeight="30.0" prefWidth="153.0" GridPane.columnIndex="4" />
+                                        <Label layoutX="10.0" layoutY="46.0" text="Pattern:" GridPane.rowIndex="2">
+                                            <font>
+                                                <Font name="Arial Black" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <CheckBox fx:id="chkBx_PatternPrice" mnemonicParsing="false" text="Price" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <CheckBox fx:id="chkBx_PatternVolume" mnemonicParsing="false" text="Volume" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                                        <Label layoutX="10.0" layoutY="46.0" text="End To:" GridPane.columnIndex="3">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <CheckBox fx:id="chkBxFromStart" mnemonicParsing="false" onAction="#onChkBxFromStart" text="From Start" GridPane.columnIndex="5">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </CheckBox>
+                                        <ComboBox fx:id="cmBx_CorrelationLength" editable="true" onScrollFinished="#onCmBxCodeScrolled" prefHeight="30.0" prefWidth="81.0" GridPane.columnIndex="6" />
+                                        <Button fx:id="btnAddJob" mnemonicParsing="false" onAction="#onBtnAddJob" prefHeight="30.0" prefWidth="74.0" text="Add Job" GridPane.columnIndex="7">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="btnClearJob" mnemonicParsing="false" onAction="#onBtnClearJob" prefHeight="30.0" prefWidth="85.0" text="Clear Job" textFill="#ff0202" GridPane.columnIndex="8" GridPane.halignment="RIGHT">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Button>
+                                        <RadioButton fx:id="rdBtn_AscFileData" mnemonicParsing="false" onAction="#onAscFileDataMode" selected="true" text="Asc File Data" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </RadioButton>
+                                        <RadioButton fx:id="rdBtn_BinFileData" mnemonicParsing="false" onAction="#onBinFileDataMode" text="Bin File Data" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </RadioButton>
+                                        <RadioButton fx:id="rdBtn_DataBase" mnemonicParsing="false" onAction="#onDataBaseMode" text="DataBase" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </RadioButton>
+                                        <Label text="Date&amp;Length:">
+                                            <font>
+                                                <Font name="Arial Black" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <Label text="Threads:" GridPane.rowIndex="1">
+                                            <font>
+                                                <Font name="Arial Black" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <ComboBox fx:id="cmBx_ThreadNumber" editable="true" onAction="#onCmBxThreadNumber" onScrollFinished="#onCmBxCodeScrolled" prefHeight="30.0" prefWidth="64.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <Label text="Job List: " GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                            <font>
+                                                <Font size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="txtF_JobList" onAction="#onJobListConfirmed" prefHeight="30.0" prefWidth="132.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                        <RadioButton fx:id="rdBtn_AllStocks" mnemonicParsing="false" onAction="#onAllSelectedMode" selected="true" text="All Stocks" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                        <RadioButton fx:id="rdBtn_SelectedStocks" mnemonicParsing="false" onAction="#onSelectedMode" text="Selected Stocks" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="4" />
+                                        <Button fx:id="btnFullSearch" mnemonicParsing="false" onAction="#onBtnFullSearch" prefHeight="25.0" prefWidth="148.0" text="Run Search" textFill="#2c06e8" GridPane.columnIndex="8" GridPane.halignment="LEFT" GridPane.rowIndex="4">
+                                            <font>
+                                                <Font name="Arial Black" size="14.0" />
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="btnTerminateCalc" mnemonicParsing="false" onAction="#onBtnTerminateCalc" prefHeight="25.0" prefWidth="148.0" text="Terminate!" textFill="#ee0707" GridPane.columnIndex="8" GridPane.rowIndex="5">
+                                            <font>
+                                                <Font name="Arial Black" size="14.0" />
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="btnRefreshAllData" mnemonicParsing="false" onAction="#onBtnRefreshAllData" prefHeight="25.0" prefWidth="154.0" text="Refresh Data" GridPane.columnIndex="8" GridPane.rowIndex="3">
+                                            <font>
+                                                <Font name="Arial Black" size="14.0" />
+                                            </font>
+                                        </Button>
+                                        <Label layoutX="10.0" layoutY="66.0" text="Data Sets:" GridPane.rowIndex="4">
+                                            <font>
+                                                <Font name="Arial Black" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="10.0" layoutY="93.0" text="Data Source:" GridPane.rowIndex="5">
+                                            <font>
+                                                <Font name="Arial Black" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <CheckBox fx:id="chkBx_PatternOCHL" mnemonicParsing="false" text="OCHL" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                        <CheckBox fx:id="chkBx_PatternAmp" layoutX="401.0" layoutY="75.0" mnemonicParsing="false" text="Amplitude" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                        <CheckBox fx:id="chkBx_PatternUpDown" layoutX="401.0" layoutY="75.0" mnemonicParsing="false" text="UpDown" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                        <CheckBox fx:id="chkBx_PatternTurnover" mnemonicParsing="false" text="Turnover " GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                                        <Button fx:id="btn_Classic" mnemonicParsing="false" onAction="#onBtnClassic" text="Classic" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                        <Label text="Date Types:" GridPane.rowIndex="3">
+                                            <font>
+                                                <Font name="Arial Black" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <CheckBox fx:id="chkBx_PatternDaily" mnemonicParsing="false" text="Daliy" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                        <CheckBox fx:id="chkBx_Pattern5Min" layoutX="146.0" layoutY="86.0" mnemonicParsing="false" text="5 Minutes" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                                        <CheckBox fx:id="chkBx_Pattern15Min" layoutX="275.0" layoutY="86.0" mnemonicParsing="false" text="15 Minutes" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                        <CheckBox fx:id="chkBx_Pattern30Min" layoutX="401.0" layoutY="86.0" mnemonicParsing="false" text="30 Minutes" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                        <CheckBox fx:id="chkBx_Pattern60Min" layoutX="501.0" layoutY="86.0" mnemonicParsing="false" text="60 Minutes" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                        <Button fx:id="btnLoad5Minutes" mnemonicParsing="false" onAction="#onBtnLoad5Minutes" prefHeight="25.0" prefWidth="154.0" text="Load Minutes 5" textFill="RED" GridPane.columnIndex="8" GridPane.rowIndex="2">
+                                            <font>
+                                                <Font name="Arial Black" size="14.0" />
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="btnMaek15Minutes" layoutX="832.0" layoutY="69.0" mnemonicParsing="false" onAction="#onBtnMakeSubMinutes" prefHeight="25.0" prefWidth="154.0" text="Make Min 15" GridPane.columnIndex="8" GridPane.rowIndex="1">
+                                            <font>
+                                                <Font name="Arial Black" size="14.0" />
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="btnMake30Minutes" layoutX="983.0" layoutY="69.0" mnemonicParsing="false" onAction="#onBtnMakeSubMinutes" prefHeight="25.0" prefWidth="154.0" text="Make Min 30" GridPane.columnIndex="9" GridPane.rowIndex="1">
+                                            <font>
+                                                <Font name="Arial Black" size="14.0" />
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="btnMake60Minutes" layoutX="983.0" layoutY="39.0" mnemonicParsing="false" onAction="#onBtnMakeSubMinutes" prefHeight="25.0" prefWidth="154.0" text="Make Min 60" textFill="#2200ff" GridPane.columnIndex="9" GridPane.rowIndex="2">
+                                            <font>
+                                                <Font name="Arial Black" size="14.0" />
+                                            </font>
+                                        </Button>
+                                    </children>
+                                </GridPane>
+                                <AnchorPane fx:id="stockPlotAnchPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1134.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="301.0" AnchorPane.topAnchor="183.0">
+                                    <children>
+                                        <!--<VBox fx:id="chartPaneVbox"  AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" >-->
+                                        <!--<children>-->
+                                        <FinanceChartPaneController fx:id="stockChart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                        <!--</children>-->                      
+                                        <!--</VBox>-->
+                                    </children>
+                                </AnchorPane>
+                                <Separator layoutX="161.0" layoutY="154.0" prefHeight="0.0" prefWidth="1283.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="182.0" />
+                                <AnchorPane fx:id="stockListAnchPane" layoutX="1343.0" layoutY="5.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <StocksTableViewController fx:id="stockListTableView" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    </children>  
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Search Results">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="searchResultsTableView" layoutX="332.0" layoutY="41.0" onMouseClicked="#onSearchTableClicked" prefHeight="774.0" prefWidth="1068.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="330.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
+                                    <columns>
+                                    </columns>
+                                    <contextMenu>
+                                        <ContextMenu>
+                                            <items>
+                                                <MenuItem fx:id="muItm_AddToReview" mnemonicParsing="false" onAction="#onMuItmAddToReview" text="Add To Review" />
+                                            </items>
+                                        </ContextMenu>
+                                    </contextMenu>
+                                </TableView>
+                                <GridPane layoutX="7.0" layoutY="8.0" prefHeight="33.0" prefWidth="1201.0" AnchorPane.topAnchor="8.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="10.0" prefWidth="87.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="217.0" minWidth="10.0" prefWidth="120.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.0" minWidth="10.0" prefWidth="90.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="124.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.0" minWidth="10.0" prefWidth="132.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.0" minWidth="10.0" prefWidth="118.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.0" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="233.0" minWidth="10.0" prefWidth="118.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="233.0" minWidth="10.0" prefWidth="118.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="233.0" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <ComboBox fx:id="cmBx_SearchStockCode" editable="true" onAction="#onCmBxSearchStockCode" onScrollFinished="#onCmBxCodeScrolled" prefHeight="29.0" prefWidth="138.0" GridPane.columnIndex="1" />
+                                        <ComboBox fx:id="cmBx_SearchStockName" editable="true" onAction="#onCmBxSearchStockName" onScrollFinished="#onCmBxNameScrolled" prefHeight="29.0" prefWidth="138.0" GridPane.columnIndex="3" />
+                                        <Label text="Stock Code:">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label prefHeight="18.0" prefWidth="87.0" text="Stock Name:" GridPane.columnIndex="2">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <CheckBox fx:id="chkBx_FilterSameDate" mnemonicParsing="false" onAction="#onChkBxFilterSameDate" prefHeight="16.0" prefWidth="173.0" text="Filter Same Date" GridPane.columnIndex="4" />
+                                        <RadioButton fx:id="rdBtn_AscFileData" mnemonicParsing="false" onAction="#onAscFileDataMode" selected="true" text="Asc File Data" GridPane.columnIndex="7">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </RadioButton>
+                                        <RadioButton fx:id="rdBtn_BinFileData" mnemonicParsing="false" onAction="#onBinFileDataMode" text="Bin File Data" GridPane.columnIndex="8">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </RadioButton>
+                                        <RadioButton fx:id="rdBtn_DataBase" mnemonicParsing="false" onAction="#onDataBaseMode" text="DataBase" GridPane.columnIndex="9">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </RadioButton>
+                                    </children>
+                                </GridPane>
+                                <ImageView fx:id="imageIcon" fitHeight="32.0" fitWidth="32.0" layoutX="300.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true" />
+                                <AnchorPane layoutX="7.0" layoutY="41.0" prefHeight="838.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="41.0">
+                                    <children>
+                                        <StocksTableViewController fx:id="stockListTableView" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    </children>  
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Reviews">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="reviewTableView" layoutX="6.0" layoutY="158.0" prefHeight="684.0" prefWidth="1400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                                    <columns>
+                                        <TableColumn fx:id="idCol" prefWidth="60.0" text="ID" />
+                                        <TableColumn fx:id="stockCodeCol" onEditStart="#editStockCode" onEditCommit="#commitStockCode" prefWidth="100.0" text="StockCode" />
+                                        <TableColumn fx:id="stockNameCol" prefWidth="100.0" text="StockName" />
+                                        <TableColumn fx:id="referenceCol" prefWidth="200.0" text="Reference" />
+                                        <TableColumn fx:id="methodCol" prefWidth="150.0" text="Methods" />
+                                        <TableColumn fx:id="startDateCol" prefWidth="140.0" text="Observe Start Date" />
+                                        <TableColumn fx:id="startPriceCol" prefWidth="140.0" text="Observe Start Price" />
+                                        <TableColumn fx:id="endDateCol" prefWidth="140.0" text="Observe End Date" />
+                                        <TableColumn fx:id="endPriceCol" prefWidth="140.0" text="Observe End Price" />
+                                        <TableColumn fx:id="profitCol" prefWidth="120.0" text="Profit (%)" />
+                                        <TableColumn fx:id="efficencyCol" prefWidth="140.0" text="Efficency (% per day)" />
+                                        <TableColumn fx:id="commentsCol" prefWidth="200.0" text="Comments" />
+                                        <TableColumn fx:id="comfirmCol" prefWidth="120.0" text="Comfirm" />
+                                    </columns>
+                                </TableView>
+                                <GridPane layoutX="14.0" layoutY="3.0" prefHeight="23.0" prefWidth="670.0" AnchorPane.rightAnchor="0.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="534.0" minWidth="6.0" prefWidth="531.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="555.0" minWidth="10.0" prefWidth="61.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="154.0" minWidth="10.0" prefWidth="47.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Button fx:id="btnSaveReviews" mnemonicParsing="false" onAction="#onBtnSaveReviews" text="Save" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                                            <font>
+                                                <Font name="Arial Black" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="btnAddReview" layoutX="629.0" layoutY="10.0" mnemonicParsing="false" onAction="#onBtnAddReview" text="Add" textFill="#ff0505" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                                            <font>
+                                                <Font name="Arial Black" size="14.0" />
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="btnRefreshReviews" layoutX="631.0" layoutY="9.0" mnemonicParsing="false" onAction="#onBtnRefreshReviews" text="Refresh" GridPane.halignment="RIGHT">
+                                            <font>
+                                                <Font name="Arial Black" size="12.0" />
+                                            </font>
+                                        </Button>
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Records">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="holdsTableView" layoutY="118.0" prefHeight="327.0" prefWidth="1543.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0">
+                                    <columns>
+                              <TableColumn fx:id="holdIdCol" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="holdDateCol" prefWidth="100.0" text="Date" />
+                                        <TableColumn fx:id="holdStockCodeCol" prefWidth="120.0" text="Code" />
+                                        <TableColumn fx:id="holdStockNameCol" prefWidth="120.0" text="Name" />
+                                        <TableColumn fx:id="holdHoldCol" prefWidth="120.0" text="Hold" />
+                                        <TableColumn fx:id="holdCostPriceCol" prefWidth="150.0" text="Cost Price" />
+                                        <TableColumn fx:id="holdCurrentPriceCol" prefWidth="150.0" text="Current Price" />
+                                        <TableColumn fx:id="holdTotalCostCol" prefWidth="150.0" text="Total Cost" />
+                                        <TableColumn fx:id="holdMarketValueCol" prefWidth="150.0" text="Market Value" />
+                                        <TableColumn fx:id="holdPorfitsCol" prefWidth="150.0" text="Profits" />
+                                        <TableColumn fx:id="holdPercentageCol" prefWidth="125.0" text="Percentage(%)" />
+                              <TableColumn fx:id="holdIdCol1" prefWidth="75.0" text="ID" />
+                                    </columns>
+                                </TableView>
+                                <TableView fx:id="tradeRecordstableView" layoutX="14.0" layoutY="396.0" prefHeight="482.0" prefWidth="1543.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="396.0">
+                                    <columns>
+                              <TableColumn fx:id="tradeIdCol" prefWidth="75.0" text="ID" />
+                                        <TableColumn fx:id="tradeDateCol" prefWidth="100.0" text="Date" />
+                                        <TableColumn fx:id="tradeTimeCol" prefWidth="75.0" text="Time">
+                                 <columns>
+                                    <TableColumn fx:id="tradeHourCol" prefWidth="50.0" text="HH" />
+                                    <TableColumn fx:id="tradeMinuteCol" prefWidth="50.0" text="MM" />
+                                 </columns></TableColumn>
+                                        <TableColumn fx:id="tradeStockCodeCol" prefWidth="120.0" text="Code" />
+                                        <TableColumn fx:id="tradeStockNameCol" prefWidth="120.0" text="Name" />
+                                        <TableColumn fx:id="tradeFlagCol" prefWidth="100.0" text="Flag" />
+                                        <TableColumn fx:id="tradePriceCol" prefWidth="100.0" text="Price" />
+                                        <TableColumn fx:id="tradeAmountCol" prefWidth="150.0" text="Amount" />
+                                        <TableColumn fx:id="tradeTransferFeeCol" prefWidth="120.0" text="Transfer Fee" />
+                                        <TableColumn fx:id="tradeCommissionFeeCol" prefWidth="120.0" text="Commission Fee" />
+                                        <TableColumn fx:id="tradeTaxCol" prefWidth="120.0" text="Tax" />
+                                        <TableColumn fx:id="tradeTotalCostCol" prefWidth="200.0" text="Total Cost" />
+                              <TableColumn fx:id="commentsCol" prefWidth="200.0" text="Comments" />
+                                    </columns>
+                                </TableView>
+                                <Label layoutX="14.0" layoutY="70.0" text="Current Holds:" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="-1.0" layoutY="378.0" text="Trade Records:" AnchorPane.topAnchor="378.0">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="14.0" layoutY="98.0" text="当前持仓:" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="21.0">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="btnAddHold" layoutX="886.0" layoutY="9.0" mnemonicParsing="false" onAction="#onBtnAddHold" text="Add" AnchorPane.rightAnchor="52.0">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="btnSaveRecords" layoutX="1492.0" layoutY="368.0" mnemonicParsing="false" onAction="#onBtnSaveRecords" text="Save" AnchorPane.rightAnchor="0.0">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="btnAddHoldSave" layoutX="952.0" layoutY="9.0" mnemonicParsing="false" onAction="#onBtnAddHoldSave" text="Save" AnchorPane.rightAnchor="0.0">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="btnAddTreadRecords" layoutX="1443.0" layoutY="368.0" mnemonicParsing="false" onAction="#onBtnAddTreadRecords" text="Add" AnchorPane.rightAnchor="52.0">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Settings">
+                    <content>
+                        <AnchorPane fx:id="settingAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane layoutX="14.0" layoutY="46.0" prefHeight="192.0" prefWidth="852.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="264.0" minWidth="10.0" prefWidth="264.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="374.0" minWidth="10.0" prefWidth="374.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="131.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="10.0" prefWidth="83.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Default StockData Bin Files Location:">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="10.0" layoutY="16.0" text="Default StockData DB Files Location:" GridPane.rowIndex="2">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="10.0" layoutY="76.0" text="Default StockData Asc Files Location:" GridPane.rowIndex="1">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="btnBrowsDataAscFilesDef" layoutX="566.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBtnBrowsDataAscFilesDef" text="Brows" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                        <Button fx:id="btnBrowsDataDbFileDef" layoutX="566.0" layoutY="44.0" mnemonicParsing="false" onAction="#onBtnBrowsDataDbFileDef" text="Brows" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                        <TextField fx:id="txtF_DataBinFilesDefPath" GridPane.columnIndex="1" />
+                                        <TextField fx:id="txtF_DataAscFilesDefPath" layoutX="243.0" layoutY="14.0" prefHeight="14.0" prefWidth="310.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <TextField fx:id="txtF_DataDbFileDefPath" layoutX="243.0" layoutY="44.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <Button fx:id="btn_SaveSettings" disable="true" mnemonicParsing="false" onAction="#onBtnSaveSetting" text="Save" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                                        <Button fx:id="btnBrowsDataBinFilesDef" layoutX="553.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBtnBrowsDataBinFilesDef" text="Brows" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                                        <Label text="Default Logs Files Location:" GridPane.rowIndex="5">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="txtF_LogFileDefPath" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                        <Button fx:id="btnBrowsLogFileDef" mnemonicParsing="false" onAction="#onBtnBrowsLogFileDef" text="Brows" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                                        <Label layoutX="10.0" layoutY="83.0" text="Default StockCorr DB Files Location:" GridPane.rowIndex="3">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="txtF_CorrDbFileDefPath" layoutX="274.0" layoutY="81.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                        <Button fx:id="btnBrowsCorrDbFileDef" layoutX="688.0" layoutY="81.0" mnemonicParsing="false" onAction="#onBtnBrowsCorrDbFileDef" text="Brows" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                                        <Label layoutX="10.0" layoutY="113.0" text="Default StockCorr Asc Files Location:" GridPane.rowIndex="4">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="txtF_CorrAscFilesDefPath" layoutX="274.0" layoutY="47.0" prefHeight="14.0" prefWidth="310.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                        <Button fx:id="btnBrowsCorrAscFilesDef" layoutX="688.0" layoutY="47.0" mnemonicParsing="false" onAction="#onBtnBrowsCorrAscFilesDef" text="Brows" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                                    </children>
+                                </GridPane>
+                                <Label layoutX="7.0" layoutY="3.0" prefHeight="23.0" prefWidth="205.0" text="Default Files Location:">
+                                    <font>
+                                        <Font name="Arial Italic" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Separator layoutY="249.0" prefHeight="0.0" prefWidth="1400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                <Label layoutX="7.0" layoutY="250.0" prefHeight="23.0" prefWidth="205.0" text="Settings:">
+                                    <font>
+                                        <Font name="Arial Italic" size="18.0" />
+                                    </font>
+                                </Label>
+                                <CheckBox layoutX="37.0" layoutY="288.0" mnemonicParsing="false" text="Logs Window Maxinumable" />
+                                <CheckBox layoutX="37.0" layoutY="310.0" mnemonicParsing="false" text="Main Window Maxinum at start" />
+                                <GridPane layoutX="34.0" layoutY="336.0" prefHeight="121.0" prefWidth="676.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <TextField fx:id="txtF_DefSample" onInputMethodTextChanged="#onContentChanged" GridPane.columnIndex="1" />
+                                        <Label prefHeight="19.0" prefWidth="164.0" text="Default sample" />
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Help">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <VBox layoutX="230.0" layoutY="239.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <Label text="Label" />
+                                        <TextArea editable="false" prefHeight="448.0" prefWidth="1543.0" text="1. 数据准备：&#10;   1.1 下载中信证券至信全能版，地址：http://download.cs.ecitic.com/index.html&#10;   1.2 登录软件，没有账号可以选择独立行情，点击“试用”。&#10;   1.3 进入软件，在“系统”-&gt;“盘后数据下载”下，选择沪深日线下载。&#10;   1.4 下载完毕，在“系统”-&gt;&quot;数据导出“下，选择“高级导出”，做好以下事情：a，导出日线即可；b，记住导出目录；c，文件名使用：YYXXXXXX.txt格式；d，数据选前复权；e，选择品种，最好沪深A股都全选。&#10;   1.5 至此，数据准备完毕。&#10;&#10;2. 软件设置：&#10;   2.1 在“Load Data”页面，设置路径，主要设置“StockData Asc Files”，用来指定输入数据文件夹；设置“StockCorr Asc File”，用来存放计算结果；其他暂时不用设置。设置完成以后，点击“Save new path as Default”。&#10;   2.2 暂时没有。&#10;&#10;3. 计算：&#10;   3.1 进入&quot;Patterns&quot;页面，选择计算时间段，从固定时间往后算，点“From Start”，选择日期；从固定时间往前算，取消“From Start”。&#10;   3.2 给计算步长（正整数，按天算），可以同时几个步长，手动输入，用逗号隔开，回车确认；或者在Add按钮旁边输入，点击Add添加。可以尝试：Classic按钮。&#10;   3.3 线程数暂时只支持单线程。&#10;   3.4 选择搜索模式（Pattern），按价格、波动、成交量等，可多选。&#10;   3.5 选择搜索的股票集合，默认是全部互相匹配计算，可以手动选择，点击“Selected Stocks”，在右侧列表中勾选希望计算的股票。&#10;   3.6 点击“Run Search”，进行搜索运算，观察Log窗口，有实时提示。&#10;&#10;4. 结果复盘：&#10;   4.1 进入&quot;Search Results&quot;页面，左侧选择需要查看的股票，可以用“Filter”过滤，点击该股票，如果有计算数据，则在右侧出现相应的计算结果。&#10;   4.2 右侧表格中为计算的结果，支持结果排序，选择一个相关系数，在Plot窗口，就会出现二者的股票图形，同时，选中单元格，会变成红色背景。&#10;   4.3 在Plot窗口，可以通过勾选上方的All Source或者All Matched，来查看匹配段之后的走势，以便验证。目前Plot窗口，还不支持自己调整显示时间段。" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <ToggleButton fx:id="tgBtnShowPlots" layoutX="1171.0" mnemonicParsing="false" onAction="#onTgBtnShowPlots" selected="true" text="Show Plots" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="0.0" />
+        <ToggleButton fx:id="tgBtnShowLog" layoutX="1270.0" mnemonicParsing="false" onAction="#onTgBtnShowLogs" selected="true" text="Show Logs" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="0.0" />
+        <Button fx:id="btnExit" layoutX="1362.0" layoutY="3.0" mnemonicParsing="false" onAction="#onBtnExit" text="Exit" textFill="#eb1414" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+    </children>
+</AnchorPane>

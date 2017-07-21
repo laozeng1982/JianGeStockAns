@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<fx:root prefHeight="40.0" prefWidth="436.0" type="ToolBar" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <items>
+    <Button mnemonicParsing="false" text="Button" />
+      <ToggleButton fx:id="tgBtnShowPlots" mnemonicParsing="false" onAction="#onTgBtnShowPlots" selected="true" text="Show Plots" />
+      <ToggleButton fx:id="tgBtnShowLog" mnemonicParsing="false" onAction="#onTgBtnShowLogs" selected="true" text="Show Logs" />
+      <Button fx:id="btnExit" mnemonicParsing="false" onAction="#onBtnExit" text="Exit" textFill="#eb1414">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Button>
+  </items>
+</fx:root>

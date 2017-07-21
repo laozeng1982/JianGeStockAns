@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root text="Records" type="Tab" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <children>
+                <TableView fx:id="holdsTableView" layoutY="118.0" prefHeight="327.0" prefWidth="1543.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0">
+                    <columns>
+                        <TableColumn fx:id="holdIdCol" prefWidth="75.0" text="ID" />
+                        <TableColumn fx:id="holdDateCol" prefWidth="100.0" text="Date" />
+                        <TableColumn fx:id="holdStockCodeCol" prefWidth="120.0" text="Code" />
+                        <TableColumn fx:id="holdStockNameCol" prefWidth="120.0" text="Name" />
+                        <TableColumn fx:id="holdHoldCol" prefWidth="120.0" text="Hold" />
+                        <TableColumn fx:id="holdCostPriceCol" prefWidth="150.0" text="Cost Price" />
+                        <TableColumn fx:id="holdCurrentPriceCol" prefWidth="150.0" text="Current Price" />
+                        <TableColumn fx:id="holdTotalCostCol" prefWidth="150.0" text="Total Cost" />
+                        <TableColumn fx:id="holdMarketValueCol" prefWidth="150.0" text="Market Value" />
+                        <TableColumn fx:id="holdPorfitsCol" prefWidth="150.0" text="Profits" />
+                        <TableColumn fx:id="holdPercentageCol" prefWidth="125.0" text="Percentage(%)" />
+                        <TableColumn fx:id="holdIdCol1" prefWidth="75.0" text="ID" />
+                    </columns>
+                </TableView>
+                <TableView fx:id="tradeRecordstableView" layoutX="14.0" layoutY="396.0" prefHeight="482.0" prefWidth="1543.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="396.0">
+                    <columns>
+                        <TableColumn fx:id="tradeIdCol" prefWidth="75.0" text="ID" />
+                        <TableColumn fx:id="tradeDateCol" prefWidth="100.0" text="Date" />
+                        <TableColumn fx:id="tradeTimeCol" prefWidth="75.0" text="Time">
+                            <columns>
+                                <TableColumn fx:id="tradeHourCol" prefWidth="50.0" text="HH" />
+                                <TableColumn fx:id="tradeMinuteCol" prefWidth="50.0" text="MM" />
+                            </columns>
+                        </TableColumn>
+                        <TableColumn fx:id="tradeStockCodeCol" prefWidth="120.0" text="Code" />
+                        <TableColumn fx:id="tradeStockNameCol" prefWidth="120.0" text="Name" />
+                        <TableColumn fx:id="tradeFlagCol" prefWidth="100.0" text="Flag" />
+                        <TableColumn fx:id="tradePriceCol" prefWidth="100.0" text="Price" />
+                        <TableColumn fx:id="tradeAmountCol" prefWidth="150.0" text="Amount" />
+                        <TableColumn fx:id="tradeTransferFeeCol" prefWidth="120.0" text="Transfer Fee" />
+                        <TableColumn fx:id="tradeCommissionFeeCol" prefWidth="120.0" text="Commission Fee" />
+                        <TableColumn fx:id="tradeTaxCol" prefWidth="120.0" text="Tax" />
+                        <TableColumn fx:id="tradeTotalCostCol" prefWidth="200.0" text="Total Cost" />
+                        <TableColumn fx:id="commentsCol" prefWidth="200.0" text="Comments" />
+                    </columns>
+                </TableView>
+                <Label layoutX="14.0" layoutY="70.0" text="Current Holds:" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="-1.0" layoutY="378.0" text="Trade Records:" AnchorPane.topAnchor="378.0">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="14.0" layoutY="98.0" text="当前持仓:" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="21.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Button fx:id="btnAddHold" layoutX="886.0" layoutY="9.0" mnemonicParsing="false" onAction="#onBtnAddHold" text="Add" AnchorPane.rightAnchor="52.0">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="btnSaveRecords" layoutX="1492.0" layoutY="368.0" mnemonicParsing="false" onAction="#onBtnSaveRecords" text="Save" AnchorPane.rightAnchor="0.0">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="btnAddHoldSave" layoutX="952.0" layoutY="9.0" mnemonicParsing="false" onAction="#onBtnAddHoldSave" text="Save" AnchorPane.rightAnchor="0.0">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="btnAddTreadRecords" layoutX="1443.0" layoutY="368.0" mnemonicParsing="false" onAction="#onBtnAddTreadRecords" text="Add" AnchorPane.rightAnchor="52.0">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </content>
+</fx:root>
