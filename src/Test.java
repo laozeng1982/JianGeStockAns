@@ -29,4 +29,9 @@ public class Test {
     public void say() {
         Logs.e(aa);
     }
+    
+    @Override
+    public String toString() {
+        return getClass().getName();
+    }
 }
